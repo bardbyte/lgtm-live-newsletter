@@ -30,10 +30,21 @@ export async function POST(req: NextRequest) {
 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    // 409 = already subscribed — treat as success
-    if (res.status === 409) {
+    const code = body?.code as string | undefined;
+
+    // Already subscribed — treat as success
+    if (res.status === 409 || code === "email_already_exists") {
       return NextResponse.json({ ok: true });
     }
+
+    // Buttondown firewall blocked the email domain
+    if (code === "subscriber_blocked") {
+      return NextResponse.json(
+        { error: "That email domain isn't accepted. Try a work or personal email." },
+        { status: 400 }
+      );
+    }
+
     console.error("[subscribe] Buttondown error:", res.status, body);
     return NextResponse.json(
       { error: "Subscription failed. Try again." },
