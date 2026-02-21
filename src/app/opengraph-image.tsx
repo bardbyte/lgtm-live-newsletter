@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "LGTM — AI concepts, explained visually";
+export const alt = "LGTM — The AI briefing your team won't give you";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -10,7 +10,7 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: "#09090B",
+          background: "#F5F2ED",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -22,42 +22,18 @@ export default function OGImage() {
       >
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
+            width: "48px",
+            height: "4px",
+            borderRadius: "2px",
+            background: "#8B3A2A",
             marginBottom: "32px",
           }}
-        >
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              background: "#22D3EE",
-            }}
-          />
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              background: "#3B82F6",
-            }}
-          />
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              background: "#8B5CF6",
-            }}
-          />
-        </div>
+        />
         <div
           style={{
             fontSize: "72px",
             fontWeight: 700,
-            color: "#FAFAFA",
+            color: "#1A1A1A",
             letterSpacing: "-2px",
           }}
         >
@@ -65,17 +41,20 @@ export default function OGImage() {
         </div>
         <div
           style={{
-            fontSize: "28px",
-            color: "#A1A1AA",
+            fontSize: "26px",
+            color: "#525252",
             marginTop: "16px",
+            maxWidth: "600px",
+            textAlign: "center",
+            lineHeight: 1.3,
           }}
         >
-          AI concepts, explained visually
+          The AI briefing your team won&apos;t give you
         </div>
         <div
           style={{
-            fontSize: "18px",
-            color: "#71717A",
+            fontSize: "16px",
+            color: "#878787",
             marginTop: "24px",
             letterSpacing: "4px",
             textTransform: "uppercase" as const,

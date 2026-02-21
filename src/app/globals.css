@@ -1,12 +1,30 @@
 @import "tailwindcss";
 
+/* ─── Light mode (default) — Warm editorial ─── */
 :root {
-  --background: #09090B;
-  --foreground: #FAFAFA;
-  --muted: #A1A1AA;
-  --muted-dark: #71717A;
-  --surface: #18181B;
-  --surface-light: #27272A;
+  --background: #F5F2ED;
+  --foreground: #2C2016;
+  --muted: #5C4F47;
+  --muted-dark: #998A82;
+  --surface: #EBE7E1;
+  --surface-light: #DDD8D1;
+  --accent: #8B3A2A;
+  --agent: #7C3AED;
+  --copilot: #2563EB;
+  --chatbot: #0891B2;
+  --amber: #D97706;
+  --emerald: #059669;
+}
+
+/* ─── Dark mode ─── */
+.dark {
+  --background: #110E0C;
+  --foreground: #F5F0EB;
+  --muted: #A89E96;
+  --muted-dark: #7A716B;
+  --surface: #1E1A17;
+  --surface-light: #2C2722;
+  --accent: #C07060;
   --agent: #8B5CF6;
   --copilot: #3B82F6;
   --chatbot: #22D3EE;
@@ -21,6 +39,7 @@
   --color-muted-dark: var(--muted-dark);
   --color-surface: var(--surface);
   --color-surface-light: var(--surface-light);
+  --color-accent: var(--accent);
   --color-agent: var(--agent);
   --color-copilot: var(--copilot);
   --color-chatbot: var(--chatbot);
@@ -36,7 +55,7 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* Custom scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -53,8 +72,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection color */
+/* Selection — oxblood brand color */
 ::selection {
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(139, 58, 42, 0.2);
   color: var(--foreground);
 }
