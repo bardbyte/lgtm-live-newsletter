@@ -67,10 +67,11 @@ export default function AIAgentsVsCopilots({ mode }: Props) {
               Next issue
             </p>
             <h2 className="text-3xl font-bold tracking-[-0.02em] md:text-4xl">
-              The 95% Failure Rate
+              The Agentic AI Quality Crisis
             </h2>
             <p className="mt-4 text-base text-muted leading-relaxed max-w-md mx-auto">
-              The 5 structural gaps that kill AI pilots after the demo works.
+              57% of teams have agents in production. Only 37% evaluate if
+              their outputs are correct. The quality gap nobody talks about.
             </p>
           </FadeIn>
 

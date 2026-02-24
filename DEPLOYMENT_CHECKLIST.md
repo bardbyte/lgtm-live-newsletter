@@ -8,10 +8,34 @@ Run through this EVERY time before deploying to production. No exceptions.
 - [ ] Article dates are correct (biweekly cadence: Feb 10, Feb 24, Mar 10, Mar 24...)
 - [ ] Article order in `src/config/articles.ts` is newest-first
 - [ ] All article slugs in `articles.ts` have matching components in `ArticlePageClient.tsx`
-- [ ] Homepage "What You'll Get" section references valid article indexes
+- [ ] Homepage "What You'll Get" section lists current article titles (not stale/removed ones)
 - [ ] No hardcoded article indexes that could break when articles are added/removed
 - [ ] Author byline is correct on all articles
-- [ ] "Next issue" teaser in email capture sections references the correct upcoming article
+
+### 1b. Cross-Reference Sanity Check (CRITICAL — do this for EVERY deploy with new articles)
+
+Every article has a mid-article "Next issue" CTA that teases the next article. These are **hardcoded strings** inside each article `.tsx` file. When you add/remove articles, ALL of these must be updated.
+
+**Files to check:**
+- Each article in `src/articles/*.tsx` — find the "Next issue" `<section>` and verify the title + subtitle match a real, live article
+- `src/components/EmailCapture.tsx` — the `getNextTuesday()` date auto-calculates, but the success message references subscriber count (update as it grows)
+- `src/app/page.tsx` — "What You'll Get" section lists article titles; verify they match `articles.ts`
+
+**The check:**
+```
+grep -n "Next issue" src/articles/*.tsx   # Find all "next issue" teasers
+```
+For each match, verify:
+- [ ] The teased article title matches a real article in `articles.ts`
+- [ ] The teased article subtitle/description is accurate
+- [ ] The teased article actually comes AFTER the current one chronologically
+- [ ] If an article was removed, its teaser in other articles was updated
+
+**Current cross-reference map (update when articles change):**
+| Article | "Next issue" teases | File:Line |
+|---|---|---|
+| `agentic-quality-crisis` | (update to next article when published) | `src/articles/agentic-quality-crisis.tsx:~72` |
+| `ai-agents-vs-copilots` | The Agentic AI Quality Crisis | `src/articles/ai-agents-vs-copilots.tsx:~69` |
 
 ### 2. Build Verification
 - [ ] `rm -rf .next` (Turbopack cache corrupts frequently — always clean build)

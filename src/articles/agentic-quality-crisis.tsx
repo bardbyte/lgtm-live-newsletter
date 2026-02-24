@@ -70,11 +70,11 @@ export default function AgenticQualityCrisis({ mode }: Props) {
               Next issue
             </p>
             <h2 className="text-3xl font-bold tracking-[-0.02em] md:text-4xl">
-              RAG in Production: What Breaks at Scale
+              Coming Soon
             </h2>
             <p className="mt-4 text-base text-muted leading-relaxed max-w-md mx-auto">
-              73% of enterprise RAG systems fail to achieve sustained success.
-              The 7 engineering failures nobody talks about until production.
+              The next deep dive is in the works. Subscribe to get it the
+              moment it drops.
             </p>
           </FadeIn>
 
