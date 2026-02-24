@@ -87,49 +87,27 @@ export default function Home() {
               What you&apos;ll get
             </p>
             <div className="space-y-5">
-              {/* Real article */}
-              <a
-                href={`/articles/${articles[0].slug}`}
-                className="group block"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 text-accent/60 font-mono text-sm">&rarr;</span>
-                  <div>
-                    <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
-                      {articles[0].title}
-                    </p>
-                    <p className="mt-1 text-xs text-muted leading-relaxed">
-                      Why your org is building the wrong thing &mdash; and the
-                      architecture decision that fixes it.
-                    </p>
+              {articles.map((article, i) => (
+                <a
+                  key={article.slug}
+                  href={`/articles/${article.slug}`}
+                  className="group block"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="mt-1 text-accent/60 font-mono text-sm">&rarr;</span>
+                    <div>
+                      <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
+                        {article.title}
+                      </p>
+                      <p className="mt-1 text-xs text-muted leading-relaxed">
+                        {article.subtitle.length > 100
+                          ? article.subtitle.slice(0, 100) + "\u2026"
+                          : article.subtitle}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
-              {/* Coming soon teasers */}
-              <div className="flex items-start gap-3 opacity-60">
-                <span className="mt-1 text-accent/40 font-mono text-sm">&rarr;</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">
-                    RAG in Production: What Breaks at Scale
-                  </p>
-                  <p className="mt-1 text-xs text-muted leading-relaxed">
-                    The retrieval pipeline architecture that survives 10K daily
-                    queries &mdash; and the one that doesn&apos;t.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 opacity-60">
-                <span className="mt-1 text-accent/40 font-mono text-sm">&rarr;</span>
-                <div>
-                  <p className="text-sm font-medium text-foreground">
-                    Fine-Tuning vs. Prompt Engineering: The $2M Decision
-                  </p>
-                  <p className="mt-1 text-xs text-muted leading-relaxed">
-                    When to train your own model vs. wrangle a foundation
-                    model &mdash; the decision matrix your team is skipping.
-                  </p>
-                </div>
-              </div>
+                </a>
+              ))}
             </div>
           </div>
         </FadeIn>
