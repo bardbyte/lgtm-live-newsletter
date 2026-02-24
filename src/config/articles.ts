@@ -21,7 +21,7 @@ export const articles: ArticleMeta[] = [
     title: "The Agentic AI Quality Crisis",
     subtitle:
       "57% of teams have agents in production. Only 37% evaluate if outputs are correct. The quality gap between \u2018works in demos\u2019 and \u2018works reliably\u2019 is where enterprises are bleeding money.",
-    publishedAt: "2026-04-07",
+    publishedAt: "2026-02-24",
     readTime: "13 min",
     accentColor: "#DC2626",
     hasViewToggle: true,
